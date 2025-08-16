@@ -3,6 +3,8 @@ package Dev.practice.demo.service;
 import Dev.practice.demo.dtoRequest.UserCreationRequest;
 import Dev.practice.demo.dtoRequest.UserUpdateRequest;
 import Dev.practice.demo.entity.User;
+import Dev.practice.demo.exception.AppException;
+import Dev.practice.demo.exception.ErrorCode;
 import Dev.practice.demo.repository.UserRepository;
 import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class UserService {
     public User createUser(UserCreationRequest request) {
         User user = new User();
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("Username is already in use");
+            throw new AppException(ErrorCode.USER_EXISTED);
         }
         user.setUsername(request.getUsername());
         user.setFirstName(request.getFirstName());
