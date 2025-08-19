@@ -1,7 +1,9 @@
-package Dev.practice.demo.dtoRequest;
+package Dev.practice.demo.DTO.Request;
+
+import lombok.Builder;
 
 import java.time.LocalDate;
-
+@Builder
 public class UserUpdateRequest {
     private String password;
     private String firstName;

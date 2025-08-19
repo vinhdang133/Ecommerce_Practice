@@ -1,9 +1,10 @@
-package Dev.practice.demo.dtoRequest;
+package Dev.practice.demo.DTO.Request;
 
 import jakarta.validation.constraints.Size;
-import org.apache.logging.log4j.message.Message;
+import lombok.Builder;
 
 import java.time.LocalDate;
+@Builder
 
 public class UserCreationRequest {
     @Size(min = 3, message = "USERNAME_INVALID")

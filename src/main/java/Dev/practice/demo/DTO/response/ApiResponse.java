@@ -1,4 +1,4 @@
-package Dev.practice.demo.dtoRequest;
+package Dev.practice.demo.DTO.dtoRequest;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -1,15 +1,13 @@
 package Dev.practice.demo.controller;
 
-import Dev.practice.demo.dtoRequest.ApiResponse;
-import Dev.practice.demo.dtoRequest.UserCreationRequest;
-import Dev.practice.demo.dtoRequest.UserUpdateRequest;
+import Dev.practice.demo.DTO.dtoRequest.ApiResponse;
+import Dev.practice.demo.DTO.Request.UserCreationRequest;
+import Dev.practice.demo.DTO.Request.UserUpdateRequest;
+import Dev.practice.demo.DTO.response.UserResponse;
 import Dev.practice.demo.entity.User;
-import Dev.practice.demo.repository.UserRepository;
 import Dev.practice.demo.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,12 +33,12 @@ public class UserController  {
         return userService.getUser();
     }
     @GetMapping("/{userId}")
-    User getUserById(@PathVariable String userId) {
+    UserResponse getUserById(@PathVariable String userId) {
         return userService.getUserById(userId);
     }
 
     @PutMapping("/{userId}")
-    User updateUser(@PathVariable String userId,@RequestBody UserUpdateRequest updatedUser) {
+    UserResponse updateUser(@PathVariable String userId,@RequestBody UserUpdateRequest updatedUser) {
         return userService.updateUser(userId, updatedUser);
     }
 
