@@ -1,15 +1,25 @@
-package Dev.practice.demo.DTO.Request;
+package Dev.practice.demo.dto.Request;
 
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
 import java.time.LocalDate;
 @Builder
-public class UserUpdateRequest {
+
+public class UserCreationRequest {
+    @Size(min = 3, message = "USERNAME_INVALID")
+    private String username;
+    @Size(min = 8, message = "PASSWORD_INVALID")
     private String password;
     private String firstName;
 
+    public String getUsername() {
+        return username;
+    }
 
-
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public LocalDate getDob() {
         return dob;

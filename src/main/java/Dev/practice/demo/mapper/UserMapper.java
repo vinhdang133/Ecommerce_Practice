@@ -1,14 +1,12 @@
 package Dev.practice.demo.mapper;
 
 
-import Dev.practice.demo.DTO.Request.UserCreationRequest;
-import Dev.practice.demo.DTO.Request.UserUpdateRequest;
-import Dev.practice.demo.DTO.response.UserResponse;
+import Dev.practice.demo.dto.Request.UserCreationRequest;
+import Dev.practice.demo.dto.Request.UserUpdateRequest;
+import Dev.practice.demo.dto.response.UserResponse;
 import Dev.practice.demo.entity.User;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {

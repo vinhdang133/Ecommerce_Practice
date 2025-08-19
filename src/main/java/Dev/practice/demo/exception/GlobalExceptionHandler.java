@@ -1,6 +1,6 @@
 package Dev.practice.demo.exception;
 
-import Dev.practice.demo.DTO.dtoRequest.ApiResponse;
+import Dev.practice.demo.dto.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

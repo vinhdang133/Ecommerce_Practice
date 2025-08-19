@@ -1,9 +1,10 @@
 package Dev.practice.demo.controller;
 
-import Dev.practice.demo.DTO.dtoRequest.ApiResponse;
-import Dev.practice.demo.DTO.Request.UserCreationRequest;
-import Dev.practice.demo.DTO.Request.UserUpdateRequest;
-import Dev.practice.demo.DTO.response.UserResponse;
+
+import Dev.practice.demo.dto.Request.UserCreationRequest;
+import Dev.practice.demo.dto.Request.UserUpdateRequest;
+import Dev.practice.demo.dto.response.ApiResponse;
+import Dev.practice.demo.dto.response.UserResponse;
 import Dev.practice.demo.entity.User;
 import Dev.practice.demo.service.UserService;
 import jakarta.validation.Valid;

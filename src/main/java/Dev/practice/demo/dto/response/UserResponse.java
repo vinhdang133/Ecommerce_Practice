@@ -1,8 +1,7 @@
-package Dev.practice.demo.DTO.response;
+package Dev.practice.demo.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 

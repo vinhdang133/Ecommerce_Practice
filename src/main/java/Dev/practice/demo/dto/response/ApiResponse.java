@@ -1,8 +1,16 @@
-package Dev.practice.demo.DTO.dtoRequest;
+package Dev.practice.demo.dto.response;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 //khai báo những field nào null thì ko kèm vào json
 public class ApiResponse <T>{
