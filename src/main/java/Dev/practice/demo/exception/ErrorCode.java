@@ -8,6 +8,8 @@ public enum ErrorCode {
     PASSWORD_INVALID(1004, "PASSWORD INVALID"),
     INVALID_KEY(1001, "INVALID KEY"),
     USER_NOT_FOUND(1005, "User not found"),
+    UNAUTHENTICATED(1006, "UNAUTHENTICATED")
+
     ;
     private int code;
 
