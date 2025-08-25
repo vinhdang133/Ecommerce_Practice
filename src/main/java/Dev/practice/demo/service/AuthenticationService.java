@@ -18,6 +18,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,10 @@ import java.util.Date;
 public class AuthenticationService {
     UserRepository userRepository;
     private static final Logger log = LoggerFactory.getLogger(AuthenticationService.class);
+    @Value("${jwt.signer.key}")
     @NonFinal
-    protected static final  String SIGNER_KEY = "FEzVOENqtBTzHsUpmfAPPkKfmtjqmyLAsOjZPrIwJGeZrgMVTSrXrooBEPQQshlR";
+    private String signerKey;
+
 
 
     public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
@@ -77,7 +80,7 @@ public class AuthenticationService {
         JWSObject jwsObject = new JWSObject(header,payload);
 
         try {
-            jwsObject.sign(new MACSigner(SIGNER_KEY.getBytes()));
+            jwsObject.sign(new MACSigner(signerKey.getBytes()));
             return jwsObject.serialize();
         } catch (JOSEException e) {
             log.error("cannot create token",e);
@@ -89,7 +92,7 @@ public class AuthenticationService {
     public IntroSpectResponse introRespect(IntroSpectRequest request) throws JOSEException, ParseException {
         var token = request.getToken();
 
-        JWSVerifier verifier = new MACVerifier(SIGNER_KEY.getBytes());
+        JWSVerifier verifier = new MACVerifier(signerKey.getBytes());
 
         SignedJWT signedJWT = SignedJWT.parse(token);
 

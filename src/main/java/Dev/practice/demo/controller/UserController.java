@@ -10,6 +10,8 @@ import Dev.practice.demo.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 import java.util.List;
 
@@ -30,9 +32,14 @@ public class UserController  {
     }
 
     @GetMapping
+    @Operation(summary = "Get user profile",
+            security = { @SecurityRequirement(name = "bearerAuth") })
     List<User> getAllUsers() {
         return userService.getUser();
     }
+
+
+
     @GetMapping("/{userId}")
     UserResponse getUserById(@PathVariable String userId) {
         return userService.getUserById(userId);
